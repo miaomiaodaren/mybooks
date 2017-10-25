@@ -1,0 +1,96 @@
+/* You can add global styles to this file, and also import other style files */
+$mainColor: #ed6460
+
+@function px2rem( $px )  
+    @return ($px/75) * 1rem
+
+@mixin font-dpr($font-size)
+    font-size: $font-size * 1
+    [data-dpr="2"] & 
+        font-size: $font-size * 2
+    [data-dpr="3"] & 
+        font-size: $font-size * 3
+    @media only screen and (min-device-width : 749px)
+        font-size: $font-size * 1.2  !important
+    [data-dpr="4"] &
+        font-size: $font-size * 4
+
+// home
+.head
+    background-color: $mainColor
+    height: px2rem(80)
+    width: 100%
+    text-align: center
+    color: #fff
+    @include font-dpr(16px)
+    line-height: px2rem(80)
+.app_nav
+    ul
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        padding: 0
+        margin: px2rem(20) 0 0 0 
+        li
+            width: 25%
+            text-align: center
+            height: px2rem(60)
+            line-height: px2rem(60)
+            display: block
+            &.active
+                background-color: $mainColor
+.hotlist
+    ul
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        padding: 0
+        margin: px2rem(30) 0 0 0
+        li
+            width: 33%
+            text-align: center
+            height: px2rem(300)
+            line-height: px2rem(160)
+            display: block
+            border: 1px solid #ddd
+            box-sizing: border-box
+            &.s_list
+                width: 100%
+                padding: px2rem(20)
+                @include font-dpr(16px)
+                text-align: left
+                border: 0
+                border-bottom: 1px solid #ddd
+                height: px2rem(150)
+                h3
+                    @include font-dpr(20px)
+                    line-height: px2rem(40)
+                    margin: 0
+                p
+                    margin: px2rem(20) 0 0 0
+                    line-height: px2rem(35)
+.booklist
+    ul
+        li
+            @include font-dpr(16px)
+            line-height: px2rem(60)
+    .bl_title
+        @include font-dpr(22px)
+        text-align: center
+        padding: px2rem(10) 0
+    .bl_author
+        @include font-dpr(14px)
+        text-align: center
+        padding: px2rem(10) 0
+        margin: 0
+    .bl_jianjie
+        @include font-dpr(14px)
+        text-align: left
+        padding: px2rem(20) px2rem(10)
+        margin: 0
+        line-height: px2rem(40)
+    .bl_count
+        @include font-dpr(12px)
+        text-align: left
+        color: #ccc
+        padding: px2rem(10)

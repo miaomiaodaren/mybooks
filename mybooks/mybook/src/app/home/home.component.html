@@ -1,0 +1,21 @@
+<div class="app_nav">
+    <ul>
+        <ng-container *ngFor="let n of bookTypeList; let i = index">
+            <li>{{n.title}}</li>
+        </ng-container>
+    </ul>
+</div>
+<div class="hotlist">
+    <ul>
+        <ng-container *ngFor="let n of bookList; let i = index">
+            <li >
+                <a [routerLink]="['/bookc', n._id]">{{i}}--{{n.title}}</a>
+            </li>
+            <!-- <li *ngIf="i > 2 && i < 5" class="s_list">
+                <h3>{{n.title}}</h3>
+                <p>{{n.jianjie}}</p>
+            </li> -->
+        </ng-container>
+    </ul>
+</div>
+<router-outlet></router-outlet>
