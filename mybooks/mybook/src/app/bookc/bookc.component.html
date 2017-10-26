@@ -2,12 +2,12 @@
     <div class="bl_title">{{BookZlIST.title}}</div>
     <p class="bl_author">{{BookZlIST.author}}</p>
     <p class="bl_jianjie">{{BookZlIST.jianjie}}</p>
-    <p class="bl_count">总共{{BookZlIST.zview}}章<span (click) ="sorttoggle">倒序</span></p>
+   <!--  <p class="bl_count">总共{{BookZlIST.zview.length}}章<span (click)="sorttoggle()">倒序</span></p>
     <ul>
         <ng-container *ngFor="let n of BookZlIST.zview; let i = index">
             <li style="list-style-type:none">
                 <a [routerLink]="['/bookc/', n.id, i]">{{n.title}}</a>
             </li>
         </ng-container>
-    </ul>
+    </ul> -->
 </div>

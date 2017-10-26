@@ -22,20 +22,21 @@ export class HttpApiService {
         return this.http.get(`/books/BookTypeList`).toPromise().then(res=> res.json() as GetBookType[]).catch(this.handleError);
     }
 
-    // getBookCList(id): Promise<GetBookList[]> {
-    //     return this.http.get(`/books/getZlist`, id).toPromise().then(res => res.json() as GetBookList[]).catch(this.handleError);
+    getBookCList(id: string): Promise<GetBookList[]> {
+        return this.http.get(`/books/getZlist`, id).toPromise().then(res => res.json() as GetBookList[]).catch(this.handleError);
+    }
+
+    // getBookCList(id: string): Observable<GetBookList[]> {
+    //     let params = new URLSearchParams();
+    //     if(id) {
+    //         params.append('id', id)
+    //     }
+    //     return this.http.post(`/books/getZlist`, params).map((res:Response) => {
+    //         console.info(res);
+    //         return res.json()
+    //     }).catch((err: any) => Observable.throw(err || 'Server error'));
     // }
 
-    getBookCList(id: string): Observable<GetBookList[]> {
-        let params = new URLSearchParams();
-        if(id) {
-            params.append('id', id)
-        }
-        return this.http.post(`/books/getZlist`, params).map((res:Response) => {
-            console.info(res);
-           return res.json() as GetBookList[]
-        }).catch((err: any) => Observable.throw(err || 'Server error'));
-    }
 
     //错误处理
     private handleError(error: any): Promise<any> {
