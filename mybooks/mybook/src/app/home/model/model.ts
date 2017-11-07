@@ -15,3 +15,8 @@ export class GetBookList {
     jianjie: string;
     zview: any;
 }
+
+export class GetBookLen {
+    _id: any;
+    zview: any;
+}

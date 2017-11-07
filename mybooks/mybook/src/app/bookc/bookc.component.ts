@@ -16,30 +16,26 @@ export class BookcComponent implements OnInit {
         private apiService: HttpApiService,
     ) {}
     bookid: any = 0;
-    public BookZlIST: GetBookList[];
+    public BookZlIST: GetBookList = new GetBookList();
     bookListLen: number = 0;
+    public Zlength: number = 0;
     getZList(id: string) : void {
-        // this.apiService.getBookCList(id).subscribe(res => {
-        //     this.BookZlIST = res;
-        //     console.info('2222', this.BookZlIST);
-        //     // console.info(this.BookZlIST, '212312312', this.BookZlIST.zview);
-        //     // this.bookListLen = this.BookZlIST.zview.length;
-        // }, error => {
-        //     console.info(error)
-        // })
-        this.apiService.getBooksType(id).then(res => {
+        this.apiService.getBookCList(id).subscribe(res => {
             this.BookZlIST = res;
+            this.Zlength = res.zview.length;
+            this.apiService.BookTopCon = res.title;
+        }, error => {
+            console.info(error)
         })
     } 
     sorttoggle(): void {
-        alert('222');
-        // this.BookZlIST.zview.reverse();
+        this.BookZlIST.zview.reverse();
     }
     ngOnInit(): void {
         this.activeRouter.params.subscribe(params => {
             this.bookid = params.id;
             this.getZList(this.bookid);
-            console.info()
+            console.info(this.bookid);
         })
     }
 }

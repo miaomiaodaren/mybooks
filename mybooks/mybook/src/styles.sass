@@ -15,6 +15,8 @@ $mainColor: #ed6460
     [data-dpr="4"] &
         font-size: $font-size * 4
 
+body
+    margin: 0
 // home
 .head
     background-color: $mainColor
@@ -74,6 +76,9 @@ $mainColor: #ed6460
         li
             @include font-dpr(16px)
             line-height: px2rem(60)
+            a
+                color: #000
+                text-decoration: none
     .bl_title
         @include font-dpr(22px)
         text-align: center
@@ -94,5 +99,116 @@ $mainColor: #ed6460
         text-align: left
         color: #ccc
         padding: px2rem(10)
+        position: relative
         span
             text-align: right
+            position: absolute
+            right: px2rem(20)
+            top: 0
+.bookv
+    @include font-dpr(14px)
+    line-height: px2rem(50)
+    padding: 0 px2rem(20)
+    position: relative
+    .boov_setting
+        display: flex
+        span
+            width: 33%
+            text-align: center
+            flex: 1
+    .setting
+        .fontchange
+            width: 70%
+            margin: 0 auto
+            display: flex
+            span
+                flex: 1
+                text-align: center
+                height: px2rem(60)
+                border: 1px solid #ddd
+                border-radius: initial !important
+        .canseting
+            position: fixed
+            z-index: 10
+            left: 0
+            bottom: px2rem(100)
+            min-height: px2rem(260)
+            background-color: #fff
+            color: #000
+            width: 100%
+            .looktype
+                span
+                    width: px2rem(100)
+                    height: px2rem(100)
+                    border-radius: 50%
+                    text-align: center
+                    line-height: px2rem(100)
+                    display: inline-block
+                    margin-left: px2rem(60)
+                    &.rj
+                        background-color: #fff
+                        border: 1px solid #ddd
+                        color: #000
+                    &.hy 
+                        border-color: #97b998
+                        background-color: #e2f0da
+                        color: #3b6058
+                    &.zz
+                        border-color: #cabb9e
+                        background-color: #f4eee1
+                        color: #754531
+                    &.yj
+                        border-color: #181b1c
+                        background-color: #181b1c
+                        color: #999
+                    &.active
+                        border: solid 3px #f5682b
+        .settop
+            width: px2rem(150)
+            height: px2rem(100)
+            line-height: px2rem(100)
+            text-align: center
+            position: fixed
+            top: 50%
+            left: 0
+            z-index: 10
+            background-color: rgba(0, 0, 0, .7)
+            border: 1px solid #ddd
+            border-left: 0
+            color: #fff
+        .setbtm
+            width: px2rem(150)
+            height: px2rem(100)
+            line-height: px2rem(100)
+            text-align: center
+            position: fixed
+            top: 50%
+            right: 0
+            z-index: 10
+            background-color: rgba(0, 0, 0, .7)
+            border: 1px solid #ddd
+            border-right: 0
+            color: #fff
+        .setall
+            width: 100%
+            height: px2rem(100)
+            line-height: px2rem(100)
+            text-align: center
+            position: fixed
+            bottom: 0
+            left: 0
+            z-index: 10
+            background-color: rgba(0, 0, 0, 1)
+            border-top: 1px solid #ddd
+            display: flex
+            color: #fff
+            span
+                flex: 1
+                width: 33%
+                text-align: center
+            a
+                color: #fff
+                text-decoration: none
+        .disable
+            background-color: #ddd
+            color: #eee

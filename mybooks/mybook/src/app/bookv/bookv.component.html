@@ -1,0 +1,33 @@
+<div class="bookv" [ngStyle]="{'background-color': defbgcolor, 'color': tactive === 'yj' ? '#fff' : '#000'}">
+    <!-- [ngStyle]="{color: 'red'}"  也支持ngStyle   [style.font-size.px]="defSize" [style.background-color="'yellow'"]-->
+    <div class="bookv_main" [innerHTML]="bookContent | delBrPipe" (click)="isseting = !isseting" [style.font-size.px]="defSize"></div>
+    <div class="boov_setting">
+        <span class="toppage" [ngClass]="{'disable': bookid === 1}" (click)="gotoppage()">上一页</span>
+        <span class="bookvmr" (click)="goCatalog()">目录</span>
+        <span calss="btmpage" (click)="gobtmpage()">下一页</span>
+    </div>
+    <div class="setting" *ngIf="isseting">
+        <div class="settop" (click)="gotoppage()">上一章</div>
+        <div class="setbtm" (click)="gobtmpage()">下一章</div>
+        <div class="canseting" *ngIf="cansetting">
+            <p class="looktype">
+                <ng-container *ngFor="let n of bgstyle; let i = index">
+                    <span class="{{n.type}}" [ngClass]="{'active': tactive === n.type}" (click)="tactive = n.type">{{n.name}}</span>
+                </ng-container>
+                <!-- <span class="rj" [ngClass]="{'active': tactive}">日间</span>
+                <span class="hy" [ngClass]="{'active': tactive}">护眼</span>
+                <span class="zz" [ngClass]="{'active': tactive}">纸张</span>
+                <span class="yj" [ngClass]="{'active': tactive}">夜间</span> -->
+            </p>
+            <p class="fontchange">
+                <span (click)="fontsizej('-')">A -</span>
+                <span (click)="fontsizej('+')">A +</span>
+            </p>
+        </div>
+        <div class="setall">
+            <span (click)="goCatalog()">返回目录</span>
+            <span (click)="cansetting = !cansetting">设置</span>
+            <span><a [routerLink]="['/home']">书城</a></span>
+        </div>
+    </div>
+</div>
