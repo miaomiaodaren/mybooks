@@ -1,0 +1,140 @@
+html,body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	height: 100%;
+	width: 100%;
+}
+  
+#root{
+	height: 100%;
+}
+.App {
+  text-align: center;
+  height: 100%;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: @rex * 100;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+//music_ing css
+#music_view{
+	background-color: #504e4e;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	.sing_bg{
+		width: 600 * @rex;
+		height: 600 * @rex;
+		margin: 0 auto;
+		position: relative;
+		top: 100 * @rex;
+		&:before{
+			content: '';
+			background: url('./static/images/disc-ip6.png') center no-repeat;
+			background-size: 100%;
+			height: 100%;
+			width: 100%;
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			transition: transform 3s;
+			z-index: 5;
+		}
+		.sing_img{
+			width: 380 * @rex;
+			height: 380 * @rex;
+			position: absolute;
+			z-index: 2;
+			top: 110 * @rex;
+			left: 110 * @rex;
+			img{
+				width: 100%;
+				height: 100%;
+			}
+		}
+		&.at{
+			animation: App-logo-spin 20s infinite;
+		}
+		&.anruning{
+			animation-play-state: paused;
+		}
+	}
+	.jidutiao{
+		width: 100%;
+		position: relative;
+		top: 450 * @rex;
+		left: 0;
+		padding: 0 20*@rex;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		.start_time, .end_time{
+			flex: none;
+			width: 100 * @rex;
+		}
+		.lines {
+			width: 500 * @rex;
+			flex: none;
+			position: relative;
+			padding-top: 15 * @rex;
+			.muc_line{
+				width: 100%;
+				height: 3px;
+				position: absolute;
+				border-radius: 5px;
+				background-color: #ddd;
+				z-index: 11;
+				left: 0;
+				display: inline-block;
+			}
+			.act_line{
+				width: 0%;
+				height: 3px;
+				border-radius: 5px;
+				background-color: #ff0000;
+				z-index: 18;
+				left: 0;
+				position: absolute;
+				transition: width 1s ease-out;
+			}
+		}
+		
+	}
+	.musci_action{
+		width: 115 * @rex;
+		height: 115 * @rex;
+		position: absolute;
+		bottom: 60 * @rex;
+		left: 50%;
+		z-index: 10;
+		margin: -75 * @rex 0 0 -70 * @rex;
+		background: url('./static/images/4.png') center no-repeat;
+		background-size: 100%;
+	}
+}
